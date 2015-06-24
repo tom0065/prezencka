@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="svmetal.checkVisitor">
+
+  <!-- Ensure Plone's portlets ZCML has already been processed;
+       without this, we may get a permission lookup error -->
+  <include package="plone.app.portlets" />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+  <plone:portlet
+      name="svmetal.checkVisitor.portlets.prezencka"
+      interface=".prezencka.Iprezencka"
+      assignment=".prezencka.Assignment"
+      view_permission="zope2.View"
+      edit_permission="cmf.ManagePortal"
+      renderer=".prezencka.Renderer"
+      addview=".prezencka.AddForm"
+      editview=".prezencka.EditForm"
+      />
+
+  
+
+</configure>

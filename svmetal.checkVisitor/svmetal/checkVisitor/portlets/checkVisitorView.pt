@@ -1,0 +1,13 @@
+<dl class="portlet CheckVisitorPortlet">
+    <dt class="portletHeader"
+        tal:define="ptitle view/data/title"
+        tal:condition="ptitle">
+        <span class="portletTopLeft"></span>
+        <span tal:content="ptitle" />
+        <span class="portletTopRight"></span>
+    </dt>
+    <dd class="portletItem odd">
+    </dd>
+    <dd class="portletFooter">
+    </dd>
+</dl>
