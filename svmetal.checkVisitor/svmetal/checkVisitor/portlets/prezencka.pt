@@ -2,7 +2,7 @@
     i18n:domain="svmetal.checkVisitor">
 
     <dt class="portletHeader" tal:define="ptitle view/data/title;
-    user view/data/setUser">
+    user view/data/setUser;">
         <span class="portletTopLeft"></span>
         <span tal:content="ptitle">
            Header
@@ -11,14 +11,19 @@
     </dt>
 
     <dd class="portletItem odd">
-        <table style="width:100%;">
-        <tr style="margin: 5px 2px 0px 2px" tal:repeat="us view/data/users">
-            <td tal:condition="repeat/us/even" style="float:left; background-color:#DDD; width:40%; text-align:center;" tal:content="us/login" /><td tal:condition="repeat/us/odd" style="float:left; width:40%; text-align:center;" tal:content="us/login" />
-            <td tal:condition="repeat/us/odd" style="float:right; background-color:#DDD; width:60%; text-align:center;" tal:content="us/date" /><td tal:condition="repeat/us/even" style="float:right; width:60%; text-align:center;" tal:content="us/date" />
-        </tr>
+        <table style="width:100%; border:solid black 2px;">
+            <tr>
+                <th style="border-right:solid black 1px; border-bottom:solid black 2px;">Uživatel:</th>
+                <th tal:condition="view/data/dateBool" style="border-left:solid black 1px; border-bottom:solid black 2px;">Datum:</th>
+            </tr>
+            <tr tal:repeat="us view/data/users">
+                <td tal:condition="repeat/us/even" tal:content="us/login" style="text-align:center; border-right:solid black 1px; ">login</td>
+                <tal:x tal:condition="view/data/dateBool"><td tal:condition="repeat/us/even" tal:content="us/dateVisit" style="text-align:center; border-left:solid black 1px;">date</td></tal:x>
+                <td tal:condition="repeat/us/odd" tal:content="us/login" style="text-align:center; border-right:solid black 1px; background-color:#DDD;">login</td>
+                <tal:x tal:condition="view/data/dateBool"><td tal:condition="repeat/us/odd" tal:content="us/dateVisit" style="text-align:center; border-left:solid black 1px; background-color:#DDD;">date</td></tal:x>
+            </tr>
         </table>
     </dd>
-
     <dd class="portletFooter">
     </dd>
 
