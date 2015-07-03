@@ -14,8 +14,10 @@ svmetal.checkVisitor.egg-info/requires.txt
 svmetal.checkVisitor.egg-info/top_level.txt
 svmetal/checkVisitor/README.txt
 svmetal/checkVisitor/__init__.py
+svmetal/checkVisitor/baseTemplate.pt
 svmetal/checkVisitor/config.py
 svmetal/checkVisitor/configure.zcml
+svmetal/checkVisitor/visitorstylesheet.css
 svmetal/checkVisitor/browser/__init__.py
 svmetal/checkVisitor/browser/configure.zcml
 svmetal/checkVisitor/content/__init__.py
@@ -27,6 +29,7 @@ svmetal/checkVisitor/portlets/checkVisitorView.pt
 svmetal/checkVisitor/portlets/configure.zcml
 svmetal/checkVisitor/portlets/prezencka.pt
 svmetal/checkVisitor/portlets/prezencka.py
+svmetal/checkVisitor/profiles/default/cssregistry.xml
 svmetal/checkVisitor/profiles/default/factorytool.xml
 svmetal/checkVisitor/profiles/default/metadata.xml
 svmetal/checkVisitor/profiles/default/portlets.xml

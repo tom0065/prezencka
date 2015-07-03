@@ -18,11 +18,11 @@ import datetime
 
 class User():
     login = ""
-    date = ""
+    dateVisit = ""
     
     def __init__(self, login):
         self.login = login
-        self.date = datetime.date.today()
+        self.dateVisit = datetime.date.today()
 
 class Iprezencka(IPortletDataProvider):
     header = schema.TextLine(title=_(u'Název'),
@@ -30,7 +30,7 @@ class Iprezencka(IPortletDataProvider):
                              description=_(u'Název portletu'),
                              required=False)
     
-    date = schema.Bool(title=_(u'Datum poslední návštěvy'),
+    dateBool = schema.Bool(title=_(u'Datum poslední návštěvy'),
                        description=_(u'Zobrazovat datum poslední návštěvy uživatele'),
                        default=False,
                        required=False)
@@ -46,9 +46,9 @@ class Assignment(base.Assignment):
     implements(Iprezencka)
     users = []
     
-    def __init__(self, header="Prezenčka", date=False):
+    def __init__(self, header="Prezenčka", dateBool=False):
         self.header = header
-        self.date = date
+        self.dateBool = dateBool
         self.users = []
 
     @property
@@ -60,7 +60,7 @@ class Assignment(base.Assignment):
     
     @property
     def visitDate(self):
-        return self.date
+        return self.dateBool
     
     @property
     def us(self):
@@ -85,7 +85,7 @@ class Renderer(base.Renderer):
         for user in self.data.users:
             if us == user.login:
                 visit = True
-                user.date = datetime.date.today()
+                user.dateVisit = datetime.date.today()
                 break
         if not visit:
             self.data.users.append(User(us))
